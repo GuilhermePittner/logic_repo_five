@@ -1,7 +1,10 @@
 var btnChutar = document.getElementById("chutar");
 var btnReiniciar = document.getElementById("reiniciar");
+
+var generatedNumbers = [];
 var randomNumber;
 var tentativas;
+
 playAgain();
 
 
@@ -48,7 +51,14 @@ function verificarChute(){
 
 
 function generateNumber(){
-    return parseInt(Math.floor(Math.random() * 1000) + 1);
+    sorteado = parseInt(Math.floor(Math.random() * 10) + 1);
+    
+    while (generatedNumbers.includes(sorteado)){
+        sorteado = parseInt(Math.floor(Math.random() * 10) + 1);
+    }
+
+    generatedNumbers.push(sorteado);
+    return sorteado;
 }
 
 
